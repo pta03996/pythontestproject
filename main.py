@@ -13,16 +13,16 @@ print("he really liked the name " + character_name)
 print("but he didn't like the age " + str(character_age))
 print("-------------------------------------------------")
 
-
-print("-------------------------------------------------")
-
 phrase = "Giraffe Academy"
 print(phrase.lower())
 print(phrase.lower().isupper())
 print(len(phrase))
 print(phrase[0])
+print(phrase[-2])
+print(phrase[4:-1])
 print(phrase.index("Acad"))
 print(phrase.replace("Giraffe","Elepheant"))
+print("-------------------------------------------------")
 
 # excercise2 : function -> is a collection of code that does someting
 
