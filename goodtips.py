@@ -96,3 +96,22 @@ file_object.close()
 with open('pimin-aint-easy.txt') as file_object
 for line in file_object:
     print(line)
+
+#Tip7: try...except statement
+#the normal way
+print('Converting!')
+try:
+    print(int('X'))
+except:
+    print('conversion failed!')
+print('Done!')
+#the noone knows way
+print('Converting!')
+try:
+    print(int('X'))
+except:
+    print('conversion failed!')
+else: #we can also use else after except
+    print('conversion Successful!')
+finally: #regardless it does work or not
+    print('Done!')
