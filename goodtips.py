@@ -38,10 +38,11 @@ print('After: x = %d, y = %d' %(x,y))
 x, y = y, x
 print('After: x = %d, y = %d' %(x,y))
 
-#Tip4: Dictionary
+#Tip4: Default Dictionary Value
 ages = {
     'Mary'      : 31,
-    'Jonathan'  : 28
+    'Jonathan'  : 28,
+    'Dick'      : 51
 }
 #the bad way
 if 'Dick' in ages:
@@ -49,3 +50,49 @@ if 'Dick' in ages:
 else:
     age = 'Na'
 print('Dick is %s years old' %age)
+#the better way use get()
+age = ages.get('Dick','Na')
+print('Dick is %s years old' %age)
+
+#Tip5: for...else
+needle = 'd'
+haystack = ['a', 'b', 'c']
+
+#the bad way
+found = False
+for letter in haystack:
+    if needle == letter:
+        print('Found!')
+        found = True
+        break
+if not found:
+    print('Not Found!')
+
+#the better way for...else() to do something if the loop is finish
+#and not yet to find it
+for letter in haystack:
+    if needle == letter:
+        print('Found!')
+        break
+else
+    print('Not Found!')
+
+#Tip6: file reading
+#the bad way
+file_object = open('pimin-aint-easy.txt')
+text = file_object.read()
+for line in text.split('\n'):
+    print(line)
+file_object.close()
+#the better way -> we dont need to read the entile file &
+#we don't need split we just loop directly
+file_object = open('pimin-aint-easy.txt')
+for line in file_object:
+    print(line)
+file_object.close()
+
+#the even better way use the context with "with statement"
+#the line under "with" are execute within the context and file automatically close
+with open('pimin-aint-easy.txt') as file_object
+for line in file_object:
+    print(line)
