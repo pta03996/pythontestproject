@@ -115,3 +115,20 @@ else: #we can also use else after except
     print('conversion Successful!')
 finally: #regardless it does work or not
     print('Done!')
+
+
+#Tip8: inline if statement
+latest_python = 3
+my_python = 3
+#the bad way
+message = 'It's up to date'
+for i in range (len(latest_python)):
+    if latest_python[i] > my_python[i]:
+        message = 'Update available'
+        break
+print('Update check %s' % message)
+#the bestter way
+message  = 'Update available' if atest_python > my_python else 'Up ot date'
+print('Update check %s' % message)
+
+#Tip9: sequence comparison
