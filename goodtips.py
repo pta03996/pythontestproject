@@ -1,3 +1,4 @@
+#Disclaimer: these  tips are from Sebastiaan Mathôt channel
 #Tip1: we want a cities in the list and the index number
 cities = ['Bangkok', 'Amsterdam','Seattle','New York']
 # the bad way
@@ -132,3 +133,24 @@ message  = 'Update available' if atest_python > my_python else 'Up ot date'
 print('Update check %s' % message)
 
 #Tip9: sequence comparison
+latest_python = (3,5,2)
+my_python = (3,5,2)
+#the bad way
+notification_message = 'Up to date'
+for i in range(len(latest_python)):
+    if latest_python[i] > my_python[i]:
+        notification_message = 'Update available'
+        break
+
+#the better way
+for latest_subversion, my_subversion in zip(latest_python,my_python):
+    if latest_subversion > my_subversion:
+        notification_message = 'Update available'
+        break
+    else
+    notification_message = 'Up to Update'
+print('Update check: %s' % notification_message)
+
+#the best way use inline if...else, it also works with list
+notification_message = 'Update available' if latest_python > my_python else 'Up to date '
+print('Update check: %s' %notification_message)
