@@ -128,7 +128,7 @@ for i in range (len(latest_python)):
         message = 'Update available'
         break
 print('Update check %s' % message)
-#the bestter way
+#the better way
 message  = 'Update available' if atest_python > my_python else 'Up ot date'
 print('Update check %s' % message)
 
@@ -152,5 +152,70 @@ for latest_subversion, my_subversion in zip(latest_python,my_python):
 print('Update check: %s' % notification_message)
 
 #the best way use inline if...else, it also works with list
+#but it doesnot work with the lists dont have the same length
 notification_message = 'Update available' if latest_python > my_python else 'Up to date '
 print('Update check: %s' %notification_message)
+
+#Tip10: extended unpacking
+cities_list = ['groningen','Marseille', 'Buenos Aires', 'Mumbai']
+#the bad way -> assume a four list element
+smallest, _, _, largest = cities_list
+print('smallest: %s' % smallest)
+print('largest: %s' % largest)
+#a better way
+smallest = cities_list[0]
+largest = cities_list[-1]
+print('smallest: %s' % smallest)
+print('largest: %s' % largest)
+# the best way -> use extended unpacked
+smallest, *rest, largest = cities_list
+print('smallest: %s' % smallest)
+print('largest: %s' % largest)
+
+#tip11: collection ordered Dictionary
+
+cities = ['groningen','marseille', 'buenos aires', 'mumbai']
+populations = [197823, 852516, 2890151, 12442373]
+#the bad way
+#we wanna capitalized the cities name
+d = {}
+for city, population in zip(cities, populations):
+    d[string.capwords(city)] = population
+print(d)
+#the better way use dictionary comprehension
+#but somehow does not preserve the order
+d = {string.capwords(city): population for city, population in zip(cities,populations)}
+print(d)
+#we gonna order it
+d = collection.OrderdDict()
+for city, population in zip(cities,populations):
+    d[string.capwords(city)] = population
+
+
+#tip12: default dictionary
+#we wanna handle when something is not in the dict yet
+
+buttterfly_observation = {
+    'Brown clipper'     : 2,
+    'Common Mormon'     : 11,
+    'Gailant Atlas Moth': 1,
+    'Blue Peacock'      : 3
+}
+#the bad way
+if 'Palmfly' in buttterfly_observation:
+    palmfly_observation = buttterfly_observation['Palmfly']
+else
+    palmfly_observation = 0
+print('Palmfly obervation: %d' %palmfly_observation)
+#the better way use lamda (lambda is the way to create function inline of code)
+# lambda : 0 is equvalent to def dummy(): return 0
+d = collection.defaultdict(lambda : 0)
+d.update(buttterfly_observation)
+palmfly_observation = d['Palmfly']
+print('Palmfly obervation: %d' %palmfly_observation)
+
+#tip13
+#using the same buttterfly_observation
+butterfly_counter = collection.Counter(buttterfly_observation) #we gotta import collections
+palmfly_observation = butterfly_counter['Palmfly'] #obviously it will return 0
+print('Palmfly obervation: %d' %palmfly_observation)
