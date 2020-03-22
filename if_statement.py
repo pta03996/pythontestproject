@@ -3,7 +3,7 @@ is_tall = True
 
 if is_male or is_tall:
     print("you're a tall man")
-elif is_male or not (is_tall):
+elif is_male or not is_tall:
     print("you're a short man")
 else:
     print("You're either not male or tall")
