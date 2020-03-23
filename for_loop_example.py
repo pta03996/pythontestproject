@@ -51,3 +51,12 @@ def word_encryption(phase):
 
 
 print(word_encryption(input("Enter a phase: ")))
+
+
+# print the F
+numbers = [5, 2, 5, 2, 2]
+for x_count in numbers:
+    output = ''
+    for the_x in len(x_count):
+        output += 'x'
+    print(output)
